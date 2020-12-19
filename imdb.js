@@ -15,9 +15,11 @@ buttonSearch.onclick = function (event) {
         .then((data) => {
             console.log("Data:", data)
          let movies =data.Search;
+         console.log(movies);
             let output = '';
             let count=0;
             for (let movie of movies) {
+                if(movie.Poster!="N/A"){
                 output += `
                 <div class="col-sm-6 col-md-3">
                 <div class="latest-movie">
@@ -27,7 +29,7 @@ buttonSearch.onclick = function (event) {
          count++;
          if(count==8) break  
          console.log(count);
-        };
+        }};
             movi.innerHTML = output;
         })
         .catch((error) => {
